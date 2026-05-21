@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shraddha Nikam | Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      background:#020617;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    /* SCROLLBAR */
+
+    ::-webkit-scrollbar{
+      width:8px;
+    }
+
+    ::-webkit-scrollbar-thumb{
+      background:#38bdf8;
+      border-radius:10px;
+    }
+
+    /* HEADER */
+
+    header{
+      position:fixed;
+      top:0;
+      width:100%;
+      padding:18px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background:rgba(15,23,42,0.9);
+      backdrop-filter:blur(10px);
+      z-index:1000;
+      border-bottom:1px solid rgba(255,255,255,0.1);
+    }
+
+    .logo{
+      font-size:28px;
+      font-weight:700;
+      color:#38bdf8;
+    }
+
+    nav a{
+      color:white;
+      text-decoration:none;
+      margin-left:25px;
+      font-weight:500;
+      transition:0.3s;
+    }
+
+    nav a:hover{
+      color:#38bdf8;
+    }
+
+    section{
+      padding:100px 8%;
+    }
+
+    /* HERO SECTION */
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:60px;
+      background:linear-gradient(to right,#020617,#0f172a);
+    }
+
+    .hero-text{
+      flex:1;
+    }
+
+    .hero-text h3{
+      color:#38bdf8;
+      font-size:25px;
+      margin-bottom:10px;
+    }
+
+    .hero-text h1{
+      font-size:65px;
+      margin-bottom:15px;
+      line-height:1.2;
+    }
+
+    .hero-text p{
+      color:#cbd5e1;
+      font-size:18px;
+      line-height:1.8;
+      max-width:600px;
+      margin-bottom:30px;
+    }
+
+    .hero-btns{
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:14px 30px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .btn-primary{
+      background:#38bdf8;
+      color:black;
+    }
+
+    .btn-primary:hover{
+      background:white;
+      transform:translateY(-5px);
+    }
+
+    .btn-secondary{
+      border:2px solid #38bdf8;
+      color:#38bdf8;
+    }
+
+    .btn-secondary:hover{
+      background:#38bdf8;
+      color:black;
+    }
+
+    /* HERO IMAGE */
+
+    .hero-image{
+      flex:1;
+      display:flex;
+      justify-content:center;
+    }
+
+    .hero-image img{
+      width:350px;
+      height:350px;
+      object-fit:cover;
+      border-radius:50%;
+      border:6px solid #38bdf8;
+      box-shadow:
+        0 0 25px #38bdf8,
+        0 0 50px rgba(56,189,248,0.4);
+      animation:float 3s ease-in-out infinite;
+    }
+
+    @keyframes float{
+      0%{
+        transform:translateY(0);
+      }
+
+      50%{
+        transform:translateY(-15px);
+      }
+
+      100%{
+        transform:translateY(0);
+      }
+    }
+
+    /* SECTION TITLE */
+
+    .title{
+      text-align:center;
+      font-size:45px;
+      color:#38bdf8;
+      margin-bottom:60px;
+      position:relative;
+    }
+
+    .title::after{
+      content:'';
+      width:100px;
+      height:4px;
+      background:#38bdf8;
+      position:absolute;
+      left:50%;
+      transform:translateX(-50%);
+      bottom:-15px;
+      border-radius:10px;
+    }
+
+    /* ABOUT */
+
+    .about{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+      gap:30px;
+    }
+
+    .about img{
+      width:300px;
+      height:300px;
+      object-fit:cover;
+      border-radius:20px;
+      border:4px solid #38bdf8;
+      box-shadow:0 0 30px rgba(56,189,248,0.3);
+    }
+
+    .about p{
+      max-width:850px;
+      color:#cbd5e1;
+      line-height:1.8;
+      font-size:18px;
+    }
+
+    /* CARDS */
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+    }
+
+    .card{
+      background:#111827;
+      padding:30px;
+      border-radius:20px;
+      transition:0.4s;
+      border:1px solid rgba(255,255,255,0.08);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .card::before{
+      content:'';
+      position:absolute;
+      width:100%;
+      height:5px;
+      background:#38bdf8;
+      top:0;
+      left:0;
+    }
+
+    .card:hover{
+      transform:translateY(-12px);
+      box-shadow:0 10px 30px rgba(56,189,248,0.2);
+    }
+
+    .card i{
+      font-size:40px;
+      color:#38bdf8;
+      margin-bottom:20px;
+    }
+
+    .card h3{
+      margin-bottom:15px;
+      font-size:24px;
+    }
+
+    .card p{
+      color:#cbd5e1;
+      line-height:1.7;
+    }
+
+    /* EDUCATION */
+
+    .education-box{
+      background:#111827;
+      padding:25px;
+      border-left:5px solid #38bdf8;
+      border-radius:15px;
+      margin-bottom:25px;
+      transition:0.3s;
+    }
+
+    .education-box:hover{
+      transform:translateX(10px);
+    }
+
+    /* SKILLS */
+
+    .skills{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:20px;
+    }
+
+    .skill{
+      background:#38bdf8;
+      color:black;
+      padding:14px 28px;
+      border-radius:50px;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .skill:hover{
+      background:white;
+      transform:scale(1.1);
+    }
+
+    /* CONTACT */
+
+    .contact-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+    }
+
+    .contact-box{
+      background:#111827;
+      padding:30px;
+      border-radius:20px;
+      text-align:center;
+      transition:0.3s;
+    }
+
+    .contact-box:hover{
+      transform:translateY(-10px);
+      box-shadow:0 0 25px rgba(56,189,248,0.2);
+    }
+
+    .contact-box i{
+      font-size:35px;
+      color:#38bdf8;
+      margin-bottom:15px;
+    }
+
+    /* FOOTER */
+
+    footer{
+      background:#111827;
+      text-align:center;
+      padding:25px;
+      margin-top:50px;
+      color:#cbd5e1;
+    }
+
+    /* MOBILE */
+
+    @media(max-width:768px){
+
+      nav{
+        display:none;
+      }
+
+      .hero{
+        flex-direction:column-reverse;
+        text-align:center;
+        padding-top:120px;
+      }
+
+      .hero-text h1{
+        font-size:42px;
+      }
+
+      .hero-image img{
+        width:260px;
+        height:260px;
+      }
+
+      .hero-btns{
+        justify-content:center;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+
+    <div class="logo">Portfolio</div>
+
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#activities">Activities</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+  </header>
+
+  <!-- HERO SECTION -->
+
+  <section class="hero">
+
+    <div class="hero-text">
+
+      <h3>Hello, I'm</h3>
+
+      <h1>Shraddha Nikam</h1>
+
+      <p>
+        MCA Student | Frontend Developer | Passionate about creating
+        modern and responsive websites with beautiful UI design.
+      </p>
+
+      <div class="hero-btns">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="#contact" class="btn btn-secondary">Contact Me</a>
+      </div>
+
+    </div>
+
+    <div class="hero-image">
+      <img src="p.png" alt="Profile Image">
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+
+  <section id="about">
+
+    <h2 class="title">About Me</h2>
+
+    <div class="about">
+
+     
+      <p>
+        I am a passionate and hardworking MCA student with strong interest
+        in Web Development and Programming. I enjoy building responsive,
+        attractive, and user-friendly websites using HTML, CSS, JavaScript,
+        React, and Python.
+      </p>
+
+      <p>
+        My goal is to become a skilled Full Stack Developer and contribute
+        to innovative real-world projects.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- PROJECTS -->
+
+  <section id="projects">
+
+    <h2 class="title">Projects</h2>
+
+    <div class="cards">
+
+      <div class="card">
+        <i class="fa-solid fa-calendar-check"></i>
+        <h3>Event Management Website</h3>
+        <p>
+          Responsive event management website with modern UI design and smooth navigation features.
+        </p>
+      </div>
+
+      <div class="card">
+        <i class="fa-solid fa-hospital"></i>
+        <h3>Hospital Management Website</h3>
+        <p>
+          Hospital website with appointment booking and patient management features.
+        </p>
+      </div>
+
+      <div class="card">
+        <i class="fa-solid fa-circle-question"></i>
+        <h3>Quiz Application</h3>
+        <p>
+          Interactive quiz application with live score tracking and timer.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ACTIVITIES -->
+
+  <section id="activities">
+
+    <h2 class="title">Activities</h2>
+
+    <div class="cards">
+
+      <div class="card">
+        <i class="fa-solid fa-code"></i>
+        <h3>Coding Competitions</h3>
+        <p>
+          Participated in coding competitions at college level and improved problem-solving skills.
+        </p>
+      </div>
+
+      <div class="card">
+        <i class="fa-solid fa-laptop-code"></i>
+        <h3>Python Workshop</h3>
+        <p>
+          Successfully attended Python training and development workshops.
+        </p>
+      </div>
+
+      <div class="card">
+        <i class="fa-solid fa-users"></i>
+        <h3>Leadership</h3>
+        <p>
+          Managed technical events and collaborated with teams effectively.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- EDUCATION -->
+
+  <section id="education">
+
+    <h2 class="title">Education</h2>
+
+    <div class="education-box">
+      <h3>Bachelor of Computer Application (BCA)</h3>
+      <p>Shivaji University | 2022 - 2025</p>
+    </div>
+
+    <div class="education-box">
+      <h3>Master of Computer Application (MCA)</h3>
+      <p>RIT | 2025 - Pursuing</p>
+    </div>
+
+  </section>
+
+  <!-- SKILLS -->
+
+  <section id="skills">
+
+    <h2 class="title">Skills</h2>
+
+    <div class="skills">
+
+      <div class="skill">HTML</div>
+      <div class="skill">CSS</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">React</div>
+      <div class="skill">Python</div>
+      <div class="skill">C++</div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section id="contact">
+
+    <h2 class="title">Contact</h2>
+
+    <div class="contact-container">
+
+      <div class="contact-box">
+        <i class="fa-solid fa-envelope"></i>
+        <h3>Email</h3>
+        <p>nikamshraddha@gmail.com</p>
+      </div>
+
+      <div class="contact-box">
+        <i class="fa-solid fa-phone"></i>
+        <h3>Phone</h3>
+        <p>+91 8907654321</p>
+      </div>
+
+      <div class="contact-box">
+        <i class="fa-solid fa-location-dot"></i>
+        <h3>Location</h3>
+        <p>Maharashtra, India</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+    <p>© 2026 Shraddha Nikam | All Rights Reserved</p>
+  </footer>
+
+</body>
+</html>
